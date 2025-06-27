@@ -1,0 +1,46 @@
+blueprint:
+  name: Solar Power Availability Control
+  description: Turn a device on during solar generation hours
+  domain: automation
+  input:
+    target_entity:
+      name: Target Entity
+      selector:
+        entity:
+    solar_sensor:
+      name: Solar Power Sensor
+      selector:
+        entity:
+          domain: sensor
+    min_generation:
+      name: Minimum Solar Power (W)
+      default: 200
+      selector:
+        number:
+          min: 0
+          max: 10000
+          step: 10
+
+automation:
+  trigger:
+    - platform: state
+      entity_id: !input solar_sensor
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: numeric_state
+              entity_id: !input solar_sensor
+              above: !input min_generation
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: !input target_entity
+        - conditions:
+            - condition: numeric_state
+              entity_id: !input solar_sensor
+              below: !input min_generation
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: !input target_entity

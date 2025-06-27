@@ -1,0 +1,43 @@
+blueprint:
+  name: Presence-Based Control
+  description: Turn a device on when someone is home, off when everyone leaves
+  domain: automation
+  input:
+    target_entity:
+      name: Target Entity
+      selector:
+        entity:
+    person_entities:
+      name: Person Entities
+      selector:
+        entity:
+          multiple: true
+          domain: person
+
+automation:
+  trigger:
+    - platform: state
+      entity_id: !input person_entities
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: !input person_entities
+                  state: 'home'
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: !input target_entity
+        - conditions:
+            - condition: and
+              conditions:
+                - condition: state
+                  entity_id: !input person_entities
+                  state: 'not_home'
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: !input target_entity

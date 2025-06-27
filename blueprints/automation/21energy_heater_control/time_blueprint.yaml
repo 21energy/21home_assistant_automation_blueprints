@@ -1,0 +1,46 @@
+blueprint:
+  name: Time-Based Schedule
+  description: Turn a device on and off based on time of day
+  domain: automation
+  input:
+    target_entity:
+      name: Target Entity
+      selector:
+        entity:
+    start_time:
+      name: Start Time
+      selector:
+        time:
+    end_time:
+      name: End Time
+      selector:
+        time:
+
+automation:
+  trigger:
+    - platform: time
+      at: !input start_time
+    - platform: time
+      at: !input end_time
+  condition: []
+  action:
+    - choose:
+        - conditions:
+            - condition: time
+              after: !input start_time
+              before: !input end_time
+          sequence:
+            - service: switch.turn_on
+              target:
+                entity_id: !input target_entity
+        - conditions:
+            - condition: or
+              conditions:
+                - condition: time
+                  before: !input start_time
+                - condition: time
+                  after: !input end_time
+          sequence:
+            - service: switch.turn_off
+              target:
+                entity_id: !input target_entity
