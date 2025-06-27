@@ -7,6 +7,7 @@ blueprint:
       name: Target Entity
       selector:
         entity:
+          domain: switch
     person_entities:
       name: Person Entities
       selector:
