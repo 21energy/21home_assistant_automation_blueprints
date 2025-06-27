@@ -9,10 +9,16 @@ blueprint:
         entity:
           domain: sensor
           device_class: temperature
-    device_entity:
-      name: Target Device
+    enable_switch:
+      name: Enable Switch
       selector:
         entity:
+          domain: switch
+    device_entity:
+      name: Heating Level Control (Number)
+      selector:
+        entity:
+          domain: number
     low_temp:
       name: Low Temp Threshold (°C)
       default: 20
