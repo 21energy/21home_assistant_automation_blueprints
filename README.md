@@ -44,4 +44,4 @@ Make sure the integration is fully set up and your devices are available in Home
 
 ## Feedback and Contributions
 
-Feel free to [open an issue](https://github.com/21energy/21energy_heater_control/issues) for bugs or feature requests. Contributions are welcome.
+Feel free to [open an issue](21home_assistant_automation_blueprint) for bugs or feature requests. Contributions are welcome.
