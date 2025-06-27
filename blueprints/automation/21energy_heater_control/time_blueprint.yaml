@@ -7,6 +7,7 @@ blueprint:
       name: Target Entity
       selector:
         entity:
+          domain: switch
     start_time:
       name: Start Time
       selector:
