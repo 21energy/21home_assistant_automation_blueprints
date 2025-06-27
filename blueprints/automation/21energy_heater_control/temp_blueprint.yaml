@@ -13,6 +13,7 @@ blueprint:
       name: Target Entity
       selector:
         entity:
+          domain: switch
     min_temp:
       name: Minimum Temperature (°C)
       default: 18
