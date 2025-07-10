@@ -47,7 +47,7 @@ action:
               entity_id: !input target_entity
           - service: number.set_value
             target:
-              entity_id: !input target_entity
+              entity_id: !input powertarget_entity
             data:
               value: !input heating_level
       - conditions:
