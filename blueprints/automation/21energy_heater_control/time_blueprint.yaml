@@ -8,6 +8,11 @@ blueprint:
       selector:
         entity:
           domain: switch
+    powertarget_entity:
+      name: Power Target Entity (number)
+      selector:
+        entity:
+          domain: number
     start_time:
       name: Start Time
       selector:
