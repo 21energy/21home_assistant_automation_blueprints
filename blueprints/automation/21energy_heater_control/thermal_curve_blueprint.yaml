@@ -42,14 +42,17 @@ trigger:
 condition: []
 action:
   - variables:
-      temp: "{{ states(!input temp_sensor) | float }}"
+      temp_sensor_entity: !input temp_sensor
+      low: !input low_temp
+      high: !input high_temp
+      temp: "{{ states(temp_sensor_entity) | float }}"
       level: >
         {% set t = temp %}
-        {% set low = !input.low_temp | float %}
-        {% set high = !input.high_temp | float %}
-        {% if t <= low %} 4
-        {% elif t >= high %} -1
-        {% else %}{{ (4 - ((t - low) / (high - low) * 4)) | round(0, 'floor') | int }}{% endif %}
+        {% set l = low | float %}
+        {% set h = high | float %}
+        {% if t <= l %} 4
+        {% elif t >= h %} -1
+        {% else %}{{ (4 - ((t - l) / (h - l) * 4)) | round(0, 'floor') | int }}{% endif %}
   - choose:
       - conditions:
           - condition: template
