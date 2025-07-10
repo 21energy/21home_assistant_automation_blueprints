@@ -15,30 +15,30 @@ blueprint:
           multiple: true
           domain: person
 
-automation:
-  trigger:
-    - platform: state
-      entity_id: !input person_entities
-  condition: []
-  action:
-    - choose:
-        - conditions:
-            - condition: or
-              conditions:
-                - condition: state
-                  entity_id: !input person_entities
-                  state: 'home'
-          sequence:
-            - service: switch.turn_on
-              target:
-                entity_id: !input target_entity
-        - conditions:
-            - condition: and
-              conditions:
-                - condition: state
-                  entity_id: !input person_entities
-                  state: 'not_home'
-          sequence:
-            - service: switch.turn_off
-              target:
-                entity_id: !input target_entity
+
+trigger:
+  - platform: state
+    entity_id: !input person_entities
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: !input person_entities
+                state: 'home'
+        sequence:
+          - service: switch.turn_on
+            target:
+              entity_id: !input target_entity
+      - conditions:
+          - condition: and
+            conditions:
+              - condition: state
+                entity_id: !input person_entities
+                state: 'not_home'
+        sequence:
+          - service: switch.turn_off
+            target:
+              entity_id: !input target_entity

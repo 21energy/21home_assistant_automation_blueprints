@@ -31,26 +31,25 @@ blueprint:
           max: 50
           step: 0.5
 
-automation:
-  trigger:
-    - platform: state
-      entity_id: !input temp_sensor
-  condition: []
-  action:
-    - choose:
-        - conditions:
-            - condition: numeric_state
-              entity_id: !input temp_sensor
-              below: !input min_temp
-          sequence:
-            - service: switch.turn_on
-              target:
-                entity_id: !input target_entity
-        - conditions:
-            - condition: numeric_state
-              entity_id: !input temp_sensor
-              above: !input max_temp
-          sequence:
-            - service: switch.turn_off
-              target:
-                entity_id: !input target_entity
+trigger:
+  - platform: state
+    entity_id: !input temp_sensor
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: numeric_state
+            entity_id: !input temp_sensor
+            below: !input min_temp
+        sequence:
+          - service: switch.turn_on
+            target:
+              entity_id: !input target_entity
+      - conditions:
+          - condition: numeric_state
+            entity_id: !input temp_sensor
+            above: !input max_temp
+        sequence:
+          - service: switch.turn_off
+            target:
+              entity_id: !input target_entity
