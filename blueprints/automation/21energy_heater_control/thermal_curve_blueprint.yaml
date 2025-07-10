@@ -36,7 +36,6 @@ blueprint:
           max: 50
           step: 0.5
 
-automation:
 trigger:
   - platform: state
     entity_id: !input temp_sensor
