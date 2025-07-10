@@ -23,12 +23,12 @@ blueprint:
         time:
     heating_level:
       name: Heater level
+      default: 3
       selector:
         number:
           min: 1
           max: 5
           step: 1
-
 trigger:
   - platform: time
     at: !input start_time
