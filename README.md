@@ -29,13 +29,12 @@ Each blueprint can be imported directly into your Home Assistant instance using 
 ### Import URLs
 
 | Blueprint Name               | Raw URL                                                                                                          |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------|
-
-| Temperature-Based Control   | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/temperature_based.yaml`   |
-| Solar Power Availability    | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/solar_based.yaml`         |
-| Time-Based Schedule         | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/time_based.yaml`          |
-| Thermal Curve Device Control| `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/thermal_curve.yaml`       |
-| Presence-Based Control      | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/presence_based.yaml`      |
+|------------------------------|------------------------------------------------------------------------------------------------------------------|
+| Temperature-Based Control   | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/temp_blueprint.yaml`   |
+| Solar Power Availability    | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/sun_hours.yaml`         |
+| Time-Based Schedule         | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/time_blueprint.yaml`          |
+| Thermal Curve Device Control| `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/thermal_curve_blueprint.yaml`       |
+| Presence-Based Control      | `https://raw.githubusercontent.com/21energy/21home_assistant_automation_blueprints/refs/heads/main/blueprints/automation/21energy_heater_control/presence_blueprint.yaml`      |
 
 ## Requirements
 
@@ -45,4 +44,4 @@ Make sure the integration is fully set up and your devices are available in Home
 
 ## Feedback and Contributions
 
-Feel free to [open an issue](21home_assistant_automation_blueprint) for bugs or feature requests. Contributions are welcome.
+Feel free to [open an issue](https://github.com/21energy/21home_assistant_automation_blueprints/issues) for bugs or feature requests. Contributions are welcome.
