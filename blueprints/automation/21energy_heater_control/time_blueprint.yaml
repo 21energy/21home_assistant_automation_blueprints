@@ -61,3 +61,5 @@ action:
           - service: switch.turn_off
             target:
               entity_id: !input target_entity
+mode: parallel
+max: 2
