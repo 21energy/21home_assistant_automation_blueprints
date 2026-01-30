@@ -72,4 +72,4 @@ action:
             target:
               entity_id: !input device_entity
             data:
-              value: "{{ level }}"
+              value: "{{ level+1 }}"
